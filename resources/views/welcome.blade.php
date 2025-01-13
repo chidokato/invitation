@@ -11,7 +11,7 @@
     <style type="text/css">
         body{ background:#06182d;}
         .img{ text-align:center; }
-        .img img{ width:200px;}
+        .img img{ width:180px;}
         .decs{ color:#fff; text-align:center; }
         .decs h1{ margin-bottom:30px }
         label{ color:#fff; margin-bottom:5px }
@@ -28,7 +28,7 @@
                 </div>
                 <div class="decs">
                     <h1>TẠO THIỆP MỜI ONLINE</h1>
-                    <p>Refresh lại trang (F5) để có cập nhật mới nhất</p>
+                    <!-- <p>Refresh lại trang (F5) để có cập nhật mới nhất</p> -->
                     <p>Nếu thiệp chưa được cập nhật > vui lòng liên hệ INDOCHINE</p>
                 </div>
                 <form action="generate" method="POST" enctype="multipart/form-data">
