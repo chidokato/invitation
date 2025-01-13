@@ -22,7 +22,7 @@ class ImageController extends Controller
 
         // Lưu file ảnh upload với tên duy nhất
         $uploadedFile = $request->file('img');
-        $uniqueAvatarName = uniqid('avatar_') . '.' . $uploadedFile->getClientOriginalExtension();
+        $uniqueAvatarName = uniqid('avatar_') . rand(0, 99) . '.' . $uploadedFile->getClientOriginalExtension();
         $avatarPath = public_path('images/' . $uniqueAvatarName);
         $uploadedFile->move(public_path('images'), $uniqueAvatarName);
 
@@ -36,15 +36,15 @@ class ImageController extends Controller
         $avatar = Image::make($avatarPath);
 
         // 1. Resize chiều ngang về 300px, giữ tỉ lệ
-        $avatar->resize(300, null, function ($constraint) {
-            $constraint->aspectRatio();
+        $avatar->fit(300, 300, function ($constraint) {
             $constraint->upsize();
         });
 
         // 2. Crop chính giữa thành hình vuông 300x300
-        $x = ($avatar->width() / 2) - (300 / 2);
-        $y = ($avatar->height() / 2) - (300 / 2);
+        $x = (int)(($avatar->width() / 2) - (300 / 2));
+        $y = (int)(($avatar->height() / 2) - (300 / 2));
         $avatar->crop(300, 300, $x, $y);
+
 
         // 3. Tạo mặt nạ tròn để bo tròn avatar
         $mask = Image::canvas(300, 300);
