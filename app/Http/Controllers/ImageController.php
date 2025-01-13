@@ -14,7 +14,12 @@ class ImageController extends Controller
             'username' => 'required|string|max:255',
         ]);
 
+        // Nhận thông tin từ form
+        $danhXung = $request->input('danh-xung');
         $username = $request->input('username');
+
+        // Kết hợp danh xưng và họ tên
+        $fullName = $danhXung . ' ' . $username;
 
         // Tạo ảnh
         $baseImagePath = public_path('images/thumoi.png');
@@ -22,7 +27,7 @@ class ImageController extends Controller
         $outputPath = public_path('images/generated_thumoi.png');
 
         $image = Image::make($baseImagePath);
-        $image->text($username, $image->width() / 2, 170, function ($font) use ($fontPath) {
+        $image->text($fullName, $image->width() / 2, 170, function ($font) use ($fontPath) {
             $font->file($fontPath);
             $font->size(40);
             $font->color('#FFFFFF');
