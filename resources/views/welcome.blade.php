@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chèn Tên Lên Ảnh</title>
+    <title>INDOCHINE - Tạo Thiệp Mời Online</title>
     <style type="text/css">
         *{ color:#fff }
         body{ background:#06182d; text-align: center;}
