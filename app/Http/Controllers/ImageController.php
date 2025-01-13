@@ -119,7 +119,8 @@ class ImageController extends Controller
         }
 
         // Tải file và xóa sau khi gửi
-        return response()->download($outputPath)->deleteFileAfterSend(true);
+        return response()->download($outputPath);
+        // return response()->download($outputPath)->deleteFileAfterSend(true);
     }
 
 }
