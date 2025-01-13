@@ -28,7 +28,7 @@ class ImageController extends Controller
 
 
         // Tạo ảnh nền và vẽ text + avatar
-        $baseImagePath = public_path('images/thumoi-1.jpg');
+        $baseImagePath = public_path('images/thumoi-2.jpg');
         $outputPath = public_path("images/generated_thumoi_{$uniqueId}.png");
         $fontPath = public_path('fonts/Montserrat/static/Montserrat-Bold.ttf');
 
