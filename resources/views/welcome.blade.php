@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
     <style type="text/css">
-        body{ background:#06182d;}
+        body{ background:#06182d; padding-bottom: 50px}
         .img{ text-align:center; }
         .img img{ width:180px;}
         .decs{ color:#fff; text-align:center; }
