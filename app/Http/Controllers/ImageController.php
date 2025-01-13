@@ -17,7 +17,7 @@ class ImageController extends Controller
 
         // Nhận dữ liệu từ request
         $danhXung = $request->input('danh-xung');
-        $username = $request->input('username');
+        $username = mb_strtoupper($request->input('username'));
         $fullName = $danhXung . ' ' . $username;
 
         // Lưu file ảnh upload với tên duy nhất
@@ -30,7 +30,7 @@ class ImageController extends Controller
         // Tạo ảnh nền và vẽ text + avatar
         $baseImagePath = public_path('images/thumoi-1.jpg');
         $outputPath = public_path("images/generated_thumoi_{$uniqueId}.png");
-        $fontPath = public_path('fonts/arial.ttf');
+        $fontPath = public_path('fonts/Montserrat/static/Montserrat-Bold.ttf');
 
         $image = Image::make($baseImagePath);
 
@@ -67,7 +67,7 @@ class ImageController extends Controller
         // 5. Thêm text vào ảnh
         $image->text($fullName, $image->width() / 2, 160, function ($font) use ($fontPath) {
             $font->file($fontPath);
-            $font->size(40);
+            $font->size(50);
             $font->color('#FFFFFF');
             $font->align('center');
             $font->valign('top');
