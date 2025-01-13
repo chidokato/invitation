@@ -15,7 +15,7 @@
         .decs{ color:#fff; text-align:center; }
         .decs h1{ margin-bottom:30px }
         label{ color:#fff; margin-bottom:5px }
-        .red{ color:red }
+        .red{ color:#d51515 }
     </style>
 </head>
 <body>
