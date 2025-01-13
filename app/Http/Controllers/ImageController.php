@@ -80,15 +80,24 @@ class ImageController extends Controller
         @unlink($avatarPath);
 
         // Trả về view để hiển thị ảnh
-        return view('show_image', ['imagePath' => asset("images/generated_thumoi_{$uniqueId}.png")]);
+        return view('show_image', ['imagePath' => asset("images/generated_thumoi_{$uniqueId}.png"), 'fileName' => "generated_thumoi_{$uniqueId}.png"]);
+
     }
 
 
     // Phương thức tải ảnh
-    public function download()
+    public function download(Request $request, $fileName)
     {
-        $outputPath = public_path('images/generated_thumoi.png');
+        $outputPath = public_path("images/{$fileName}");
+
+        // Kiểm tra file có tồn tại không
+        if (!file_exists($outputPath)) {
+            abort(404, 'File không tồn tại!');
+        }
+
+        // Tải file và xóa sau khi gửi
         return response()->download($outputPath)->deleteFileAfterSend(true);
     }
+
 }
 

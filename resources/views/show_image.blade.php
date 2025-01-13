@@ -41,6 +41,7 @@
 <body>
     <img src="{{ $imagePath }}" alt="Thư Mời">
     <br>
-    <a href="{{ route('download') }}" class="btn">Tải Xuống</a>
+    <a href="{{ route('download', ['fileName' => $fileName]) }}" class="btn btn-success">Tải ảnh xuống</a>
+
 </body>
 </html>
