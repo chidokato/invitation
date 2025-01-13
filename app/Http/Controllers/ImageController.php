@@ -17,6 +17,7 @@ class ImageController extends Controller
 
         // Nhận dữ liệu từ request
         $danhXung = $request->input('danh-xung');
+        $chucdanh = $request->input('chuc-danh');
         $username = mb_strtoupper($request->input('username'));
         $fullName = $danhXung . ' ' . $username;
 
@@ -28,9 +29,12 @@ class ImageController extends Controller
 
 
         // Tạo ảnh nền và vẽ text + avatar
-        $baseImagePath = public_path('images/thumoi-2.jpg');
+        if ($chucdanh) $baseImagePath = public_path('images/thumoi-3.jpg');
+            else $baseImagePath = public_path('images/thumoi-2.jpg'); 
+        
         $outputPath = public_path("images/generated_thumoi_{$uniqueId}.png");
         $fontPath = public_path('fonts/Montserrat/static/Montserrat-Bold.ttf');
+        $fontPath1 = public_path('fonts/Montserrat/static/Montserrat-Italic.ttf');
 
         $image = Image::make($baseImagePath);
 
@@ -63,11 +67,30 @@ class ImageController extends Controller
         // Chèn avatar vào ảnh nền
         $image->insert($avatar, 'top-left', (int)$x, $y);
 
+        if ($chucdanh) {
+            // 5. Thêm text vào ảnh
+            $image->text($fullName, $image->width() / 2, 115, function ($font) use ($fontPath) {
+                $font->file($fontPath);
+                $font->size(50);
+                $font->color('#FFFFFF');
+                $font->align('center');
+                $font->valign('top');
+            });
+        }else{
+            // 5. Thêm text vào ảnh
+            $image->text($fullName, $image->width() / 2, 155, function ($font) use ($fontPath) {
+                $font->file($fontPath);
+                $font->size(50);
+                $font->color('#FFFFFF');
+                $font->align('center');
+                $font->valign('top');
+            });
+        }
 
-        // 5. Thêm text vào ảnh
-        $image->text($fullName, $image->width() / 2, 180, function ($font) use ($fontPath) {
-            $font->file($fontPath);
-            $font->size(50);
+        // 5.1 Thêm chức danh
+        $image->text($chucdanh, $image->width() / 2, 190, function ($font) use ($fontPath1) {
+            $font->file($fontPath1);
+            $font->size(40);
             $font->color('#FFFFFF');
             $font->align('center');
             $font->valign('top');

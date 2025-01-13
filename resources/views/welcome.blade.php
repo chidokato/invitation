@@ -14,8 +14,8 @@
         .img img{ width:200px;}
         .decs{ color:#fff; text-align:center; }
         .decs h1{ margin-bottom:30px }
-        label{ color:#fff }
-
+        label{ color:#fff; margin-bottom:5px }
+        .red{ color:red }
     </style>
 </head>
 <body>
@@ -34,21 +34,34 @@
                 <form action="generate" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group mb-3">
-                        <label>Danh xưng</label>
+                        <label>Danh xưng <span class="red">(*)</span></label>
                         <select class="form-control" name="danh-xung" required>
-                            <option>Ông</option>
-                            <option>Bà</option>
+                            <option value="">-- Vui lòng chọn --</option>
+                            <option value="Mr.">Mr</option>
+                            <option value="Ms.">Ms</option>
                         </select>
                     </div>
 
                     <div class="form-group mb-3">
-                        <label>Họ & Tên</label>
-                        <input class="form-control" type="text" id="username" name="username" required>
+                        <label>Họ & Tên <span class="red">(*)</span></label>
+                        <input class="form-control" type="text" name="username" required placeholder="Nhập Họ & Tên">
                     </div>
 
                     <div class="form-group mb-3">
-                        <label>Avatar</label>
+                        <label>Chức danh</label>
+                        <input class="form-control" type="text" name="chuc-danh" placeholder="Nhập chức danh">
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label>Avatar <span class="red">(*)</span></label>
                         <input class="form-control" type="file" name="img" required>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <div> <label>Sự kiện</label> </div>
+                        <label>
+                            <input checked class="" type="radio" name="event" required> <span>Sự kiện YEP 2024 "The Rise Era - Bừng sáng kỷ nguyên thịnh vượng"</span>
+                        </label>
                     </div>
                     
                     <button type="submit" class="btn btn-primary">TẠO THIỆP MỜI</button>
