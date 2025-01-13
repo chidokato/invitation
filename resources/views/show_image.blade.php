@@ -8,7 +8,7 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            margin: 10px;
+            margin-top: 20px;
             background: #000;
         }
         img {
@@ -27,6 +27,14 @@
         }
         .btn:hover {
             background-color: #45a049;
+        }
+
+
+        @media (max-width: 769px) {
+            img {
+                max-width: 95%;
+                height: auto;
+            }
         }
     </style>
 </head>

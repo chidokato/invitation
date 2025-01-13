@@ -31,11 +31,11 @@
                     <p>Refresh lại trang (F5) để có cập nhật mới nhất</p>
                     <p>Nếu thiệp chưa được cập nhật > vui lòng liên hệ INDOCHINE</p>
                 </div>
-                <form action="generate" method="POST">
+                <form action="generate" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group mb-3">
                         <label>Danh xưng</label>
-                        <select class="form-control" name="danh-xung">
+                        <select class="form-control" name="danh-xung" required>
                             <option>Ông</option>
                             <option>Bà</option>
                         </select>
@@ -44,6 +44,11 @@
                     <div class="form-group mb-3">
                         <label>Họ & Tên</label>
                         <input class="form-control" type="text" id="username" name="username" required>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label>Avatar</label>
+                        <input class="form-control" type="file" name="img" required>
                     </div>
                     
                     <button type="submit" class="btn btn-primary">TẠO THIỆP MỜI</button>
