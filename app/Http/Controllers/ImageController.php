@@ -65,7 +65,7 @@ class ImageController extends Controller
 
 
         // 5. Thêm text vào ảnh
-        $image->text($fullName, $image->width() / 2, 160, function ($font) use ($fontPath) {
+        $image->text($fullName, $image->width() / 2, 180, function ($font) use ($fontPath) {
             $font->file($fontPath);
             $font->size(50);
             $font->color('#FFFFFF');
