@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>Thư Mời</title>
     <style>
         body {
@@ -15,20 +16,6 @@
             max-width: 600px;
             height: auto;
         }
-        .btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-        .btn:hover {
-            background-color: #45a049;
-        }
-
 
         @media (max-width: 769px) {
             img {
@@ -42,6 +29,7 @@
     <img src="{{ $imagePath }}" alt="Thư Mời">
     <br>
     <a href="{{ route('download', ['fileName' => $fileName]) }}" class="btn btn-success">Tải ảnh xuống</a>
+    <a href="{{ asset('') }}" class=" btn-warning btn">Tạo ảnh khác</a>
 
 </body>
 </html>
