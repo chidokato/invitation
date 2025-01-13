@@ -8,11 +8,11 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            margin: 50px;
+            margin: 10px;
             background: #000;
         }
         img {
-            max-width: 100%;
+            max-width: 600px;
             height: auto;
         }
         .btn {
