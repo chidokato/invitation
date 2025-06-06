@@ -107,6 +107,48 @@ class ImageController extends Controller
 
     }
 
+    public function generate_1620062025(Request $request)
+    {
+        $request->validate([
+            'username' => 'required|string|max:255'
+        ]);
+
+        // Nhận dữ liệu từ request
+        $chucdanh = $request->input('chuc-danh');
+        $username = mb_strtoupper($request->input('username'));
+        $fullName = $username . ' - ' . $chucdanh;
+
+        // Lưu file ảnh upload với tên duy nhất
+        $uniqueId = uniqid(); // Tạo ID duy nhất
+
+
+        // Tạo ảnh nền và vẽ text + avatar
+        $baseImagePath = public_path('images/thumoisnlen3.jpg'); 
+        
+        $outputPath = public_path("images/generated_thumoi_{$uniqueId}.png");
+        $fontPath = public_path('fonts/Montserrat/static/Montserrat-Bold.ttf');
+        $fontPath1 = public_path('fonts/Montserrat/static/Montserrat-Italic.ttf');
+
+        $image = Image::make($baseImagePath);
+
+
+        // 5. Thêm text vào ảnh
+        $image->text($fullName, $image->width() / 2, 660, function ($font) use ($fontPath) {
+            $font->file($fontPath);
+            $font->size(80);
+            $font->color('#FFFFFF');
+            $font->align('center');
+            $font->valign('top');
+        });
+        
+        // 6. Lưu ảnh vào thư mục tạm
+        $image->save($outputPath);
+
+        // Trả về view để hiển thị ảnh
+        return view('show_image', ['imagePath' => asset("images/generated_thumoi_{$uniqueId}.png"), 'fileName' => "generated_thumoi_{$uniqueId}.png"]);
+
+    }
+
 
     // Phương thức tải ảnh
     public function download(Request $request, $fileName)

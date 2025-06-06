@@ -29,18 +29,18 @@
                 <div class="decs">
                     <h1>TẠO THIỆP MỜI ONLINE</h1>
                     <!-- <p>Refresh lại trang (F5) để có cập nhật mới nhất</p> -->
-                    <p>Nếu thiệp chưa được cập nhật > vui lòng liên hệ INDOCHINE</p>
+                    <p>ĐÊM TIỆC GALA “MỪNG INDOCHINE LÊN BA”</p>
                 </div>
-                <form action="generate" method="POST" enctype="multipart/form-data">
+                <form action="generate_1620062025" method="POST" enctype="multipart/form-data">
                     @csrf
-                    <div class="form-group mb-3">
+                    <!-- <div class="form-group mb-3">
                         <label>Danh xưng <span class="red">(*)</span></label>
                         <select class="form-control" name="danh-xung" required>
                             <option value="">-- Vui lòng chọn --</option>
                             <option value="Mr.">Mr</option>
                             <option value="Ms.">Ms</option>
                         </select>
-                    </div>
+                    </div> -->
 
                     <div class="form-group mb-3">
                         <label>Họ & Tên <span class="red">(*)</span></label>
@@ -52,17 +52,17 @@
                         <input class="form-control" type="text" name="chuc-danh" placeholder="Nhập chức danh">
                     </div>
 
-                    <div class="form-group mb-3">
+                    <!-- <div class="form-group mb-3">
                         <label>Avatar <span class="red">(*)</span></label>
                         <input class="form-control" type="file" name="img" required>
-                    </div>
+                    </div> -->
 
-                    <div class="form-group mb-3">
+                    <!-- <div class="form-group mb-3">
                         <div> <label>Sự kiện</label> </div>
                         <label>
                             <input checked class="" type="radio" name="event" required> <span>Sự kiện YEP 2024 "The Rise Era - Bừng sáng kỷ nguyên thịnh vượng"</span>
                         </label>
-                    </div>
+                    </div> -->
                     
                     <button type="submit" class="btn btn-primary">TẠO THIỆP MỜI</button>
                 </form>

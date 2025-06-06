@@ -20,6 +20,8 @@ Route::get('/', function () {
 
 
 Route::post('/generate', [ImageController::class, 'generate'])->name('generate');
+Route::post('/generate_1620062025', [ImageController::class, 'generate_1620062025'])->name('generate');
+
 Route::get('/download/{fileName}', [ImageController::class, 'download'])->name('download');
 
 
